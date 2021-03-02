@@ -1,6 +1,8 @@
 import React, { useEffect, useRef } from 'react';
+import PropTypes from 'prop-types';
+import { withStyles } from 'direflow-component';
 
-import classes from './ChatBody.module.css';
+import styles from './ChatBody.css';
 import Spinner from '../../chatElements/Spinner/Spinner';
 
 import TextMessage from '../../chatElements/TextMessage/TextMessage';
@@ -58,8 +60,8 @@ const ChatBody = (props) => {
   const msgElements = processMsgs(props.messages);
 
   return (
-    <div className={classes.ChatBody} ref={chatBodyDiv}>
-      <div className={classes.MessagesContainer}>
+    <div className='ChatBody' ref={chatBodyDiv}>
+      <div className='MessagesContainer'>
         {msgElements}
         {props.showSpinner ? <Spinner/> : ''}
       </div>
@@ -67,6 +69,10 @@ const ChatBody = (props) => {
   )
 }
 
+ChatBody.propTypes = {
+  showSpinner: PropTypes.bool,
+  messages: PropTypes.array,
+  sendMsg: PropTypes.func
+};
 
-
-export default ChatBody;
+export default withStyles(styles)(ChatBody);

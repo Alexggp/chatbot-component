@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
-import { Styled } from 'direflow-component';
+import { withStyles } from 'direflow-component';
 
 import styles from './ChatFooter.css';
 import { SendIcon} from '../../../assets/icons';
@@ -24,18 +24,16 @@ const ChatFooter = (props) => {
   };
 
   return (
-    <Styled styles={styles}>
-      <div className='ChatFooter'>
-        <input 
-          type="text"
-          placeholder="Escribe algo aquí..."
-          onKeyPress={handleKeypress}
-          ref={textInput}/>
-        <div className='SendButton' onClick={submitHandler}>
-          <SendIcon/>
-        </div>
+    <div className='ChatFooter'>
+      <input 
+        type="text"
+        placeholder="Escribe algo aquí..."
+        onKeyPress={handleKeypress}
+        ref={textInput}/>
+      <div className='SendButton' onClick={submitHandler}>
+        <SendIcon/>
       </div>
-    </Styled>
+    </div>
   )
 }
 ChatFooter.propTypes = {
@@ -43,4 +41,4 @@ ChatFooter.propTypes = {
 };
 
 
-export default ChatFooter;
+export default withStyles(styles)(ChatFooter);

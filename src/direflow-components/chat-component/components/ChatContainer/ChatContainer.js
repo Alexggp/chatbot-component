@@ -6,8 +6,8 @@ import EvaConexion from '../../services/eva/EvaConection';
 import styles from './ChatContainer.css';
 import { TextMsg } from '../chatElements/chatClasses';
 import ChatHeader from './ChatHeader/ChatHeader';
-// import ChatBody from './ChatBody/ChatBody';
-// import ChatFooter from './ChatFooter/ChatFooter';
+import ChatBody from './ChatBody/ChatBody';
+import ChatFooter from './ChatFooter/ChatFooter';
 
 import demoInput from '../../demoInput';
 
@@ -62,12 +62,12 @@ class ChatContainer extends Component {
     const chatContainer = (
 
         <div className='ChatContainer'>
-           <ChatHeader close={this.props.closeChat}/>
-         {/* <ChatBody 
+          <ChatHeader close={this.props.closeChat}/>
+          <ChatBody 
             messages={this.state.messages} 
             showSpinner={this.state.showSpinner}
             sendMsg={this.sendUserMessage}/>
-          <ChatFooter send={this.addUserMessage}/> */}
+          <ChatFooter send={this.addUserMessage}/> 
         </div>
     
     )

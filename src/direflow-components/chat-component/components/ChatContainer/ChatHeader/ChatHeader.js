@@ -9,19 +9,17 @@ import { CloseIcon, WidgetIcon } from '../../../assets/icons';
 const ChatHeader = (props) => {
 
   return (
-    <React.Fragment>
-      <div className='ChatHeader'>
-        <div className= 'Logo'>
-          <WidgetIcon/>
-        </div>
-        <div className= 'Title'>
-          ChatBot
-        </div>
-        <div className= 'CloseButton' onClick={props.close}>
-          <CloseIcon/>
-        </div>
+    <div className='ChatHeader'>
+      <div className= 'Logo'>
+        <WidgetIcon/>
       </div>
-    </React.Fragment>
+      <div className= 'Title'>
+        ChatBot
+      </div>
+      <div className= 'CloseButton' onClick={props.close}>
+        <CloseIcon/>
+      </div>
+    </div>
   )
 }
 
