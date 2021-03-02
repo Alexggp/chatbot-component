@@ -1,7 +1,9 @@
 import React, { useRef } from 'react';
+import PropTypes from 'prop-types';
+import { Styled } from 'direflow-component';
 
-import classes from './ChatFooter.module.css';
-import sendImage from '../../../assets/images/send-icon.svg';
+import styles from './ChatFooter.css';
+import { SendIcon} from '../../../assets/icons';
 
 
 const ChatFooter = (props) => {
@@ -22,19 +24,23 @@ const ChatFooter = (props) => {
   };
 
   return (
-    <div className={classes.ChatFooter}>
-      <input 
-        type="text"
-        placeholder="Escribe algo aquí..."
-        onKeyPress={handleKeypress}
-        ref={textInput}/>
-      <div className={classes.SendButton} onClick={submitHandler}>
-        <img src={sendImage} alt='Close'/>
+    <Styled styles={styles}>
+      <div className='ChatFooter'>
+        <input 
+          type="text"
+          placeholder="Escribe algo aquí..."
+          onKeyPress={handleKeypress}
+          ref={textInput}/>
+        <div className='SendButton' onClick={submitHandler}>
+          <SendIcon/>
+        </div>
       </div>
-    </div>
+    </Styled>
   )
 }
-
+ChatFooter.propTypes = {
+  send: PropTypes.func,
+};
 
 
 export default ChatFooter;

@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
+import { withStyles } from 'direflow-component';
 
 import WidgetButton from './components/WidgetButton/WidgetButton';
-// import ChatContainer from './components/ChatContainer/ChatContainer';
-
+import ChatContainer from './components/ChatContainer/ChatContainer';
+import styles from './App.css';
 class App extends Component {
   constructor(){
     super();
@@ -25,13 +26,13 @@ class App extends Component {
           <WidgetButton 
             show={!this.state.chatIsOpen}
             click={this.toggleChatHandler} />
-          {/* <ChatContainer 
+          <ChatContainer 
             show= {this.state.chatIsOpen}
-            closeChat = {this.toggleChatHandler} />   */}
+            closeChat = {this.toggleChatHandler} />  
         </div>
       );
     }
   }
 
 
-export default App;
+export default withStyles(styles)(App);

@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Styled } from 'direflow-component';
+import { withStyles } from 'direflow-component';
 
-import classes from './WidgetButton.css';
+import styles from './WidgetButton.css';
 import { WidgetIcon } from '../../assets/icons';
 
 const widgetButton = (props) => {
@@ -17,9 +17,9 @@ const widgetButton = (props) => {
   }
 
   return (
-    <Styled styles={classes}>
+    <React.Fragment>
       {widget}
-    </Styled>
+    </React.Fragment>
   )
 }
 
@@ -28,4 +28,4 @@ widgetButton.propTypes = {
   click: PropTypes.func,
 };
 
-export default widgetButton;
+export default withStyles(styles)(widgetButton);

@@ -1,27 +1,33 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { withStyles } from 'direflow-component';
 
-import classes from './ChatHeader.module.css';
-import logoImage from '../../../assets/images/widget-img.svg';
-import closeImage from '../../../assets/images/close-icon.svg';
+import styles from './ChatHeader.css';
+import { CloseIcon, WidgetIcon } from '../../../assets/icons';
 
 
 const ChatHeader = (props) => {
 
   return (
-    <div className={classes.ChatHeader}>
-      <div className= {classes.Logo}>
-        <img src={logoImage} alt='ChatBot'/>
+    <React.Fragment>
+      <div className='ChatHeader'>
+        <div className= 'Logo'>
+          <WidgetIcon/>
+        </div>
+        <div className= 'Title'>
+          ChatBot
+        </div>
+        <div className= 'CloseButton' onClick={props.close}>
+          <CloseIcon/>
+        </div>
       </div>
-      <div className= {classes.Title}>
-        ChatBot
-      </div>
-      <div className= {classes.CloseButton} onClick={props.close}>
-        <img src={closeImage} alt='Close'/>
-      </div>
-    </div>
+    </React.Fragment>
   )
 }
 
+ChatHeader.propTypes = {
+  close: PropTypes.func,
+};
 
 
-export default ChatHeader;
+export default withStyles(styles)(ChatHeader);

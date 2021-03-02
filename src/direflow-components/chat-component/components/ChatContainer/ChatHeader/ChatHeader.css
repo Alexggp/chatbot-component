@@ -28,7 +28,7 @@
   height: 40px;
 }
 
-.Logo img, .CloseButton img{
+.Logo svg, .CloseButton svg{
   width: 100%;
   height: auto;
 }
