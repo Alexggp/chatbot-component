@@ -1,0 +1,10 @@
+.QuickReply{
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.QuickReply > div {
+  margin-right: 10px;
+}

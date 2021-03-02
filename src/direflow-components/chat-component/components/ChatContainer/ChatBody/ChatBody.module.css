@@ -1,0 +1,29 @@
+.ChatBody{
+  width: 100%;
+  height: 460px;
+  background-color: #F5F5F5;
+  flex: 1;
+  overflow: auto;
+  scroll-behavior: smooth;
+}
+
+.MessagesContainer{
+  width: 100%;
+  box-sizing: border-box;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.MessagesContainer > div{
+  margin-bottom: 20px;
+  animation-name: fade;
+  animation-duration: 1s;
+  
+}
+
+@keyframes fade {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}

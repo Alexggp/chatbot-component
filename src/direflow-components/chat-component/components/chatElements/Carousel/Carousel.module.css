@@ -1,0 +1,75 @@
+.Carousel{
+  width: 100%;
+  position: relative;
+}
+
+.ItemsContainer{
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+}
+
+.ItemsContainer > div{
+  margin-right: 10px;
+  flex-shrink: 0;
+}
+.ItemContainer > div:last-of-type{
+  margin-right: unset;
+}
+
+.Arrow{
+  cursor: pointer;
+  font-size: 2em;
+  color: white;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background-color: rgba(193, 193, 193, 0.3);
+  border-radius: 100px;
+  margin: auto;
+  top:0;
+  bottom:0;
+}
+
+
+.Arrow > img{
+  width: 100%;
+  height: 100%;
+  vertical-align: unset;
+}
+
+.ArrowLeft{
+  left: -10px;
+}
+
+.ArrowLeft > img {
+  -ms-transform: rotate(90deg);
+  /* IE 9 */
+  -webkit-transform: rotate(90deg);
+  /* Safari 3-8 */
+  transform: rotate(90deg);
+}
+
+.ArrowRight{
+  right: -10px;
+}
+
+.ArrowRight > img {
+  -ms-transform: rotate(-90deg);
+  /* IE 9 */
+  -webkit-transform: rotate(-90deg);
+  /* Safari 3-8 */
+  transform: rotate(-90deg);
+}
+
+
+@media (max-width: 600px) {
+  .Arrow{
+    display: none;
+  }
+  .ItemsContainer{
+    overflow-x: auto;
+  }
+}

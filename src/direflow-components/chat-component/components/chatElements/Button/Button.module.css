@@ -1,0 +1,22 @@
+.Button{
+  height: 30px;
+  padding: 0 15px;
+  box-sizing: border-box;
+  border-radius: 100px;
+  border: 1px solid #000;
+  cursor: pointer;
+  background-color: #FFF;
+  color: #000;
+  font-weight: bold;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  line-height: 0px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.ButtonClicked, .Button:hover{
+  background-color: #000;
+  color: #FFF;
+}

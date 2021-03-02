@@ -1,52 +1,37 @@
-import React, { useContext } from 'react';
-import PropTypes from 'prop-types';
-import { EventContext, Styled } from 'direflow-component';
-import styles from './App.css';
+import React, {Component} from 'react';
 
-const App = (props) => {
-  const dispatch = useContext(EventContext);
+import WidgetButton from './components/WidgetButton/WidgetButton';
+// import ChatContainer from './components/ChatContainer/ChatContainer';
 
-  const handleClick = () => {
-    const event = new Event('my-event');
-    dispatch(event);
-  };
+class App extends Component {
+  constructor(){
+    super();
+    this.state= {
+      chatIsOpen: false
+    }
 
-  const renderSampleList = props.sampleList.map((sample) => (
-    <div key={sample} className='sample-text'>
-      → {sample}
-    </div>
-  ));
+    this.toggleChatHandler = () =>{
+      this.setState(prevState => (
+        {chatIsOpen: !prevState.chatIsOpen}
+      ))
+    }
 
-  return (
-    <Styled styles={styles}>
-      <div className='app'>
-        <div className='top'>
-          <div className='header-image' />
+  }
+  
+  render(){
+    return (
+        <div className="App">
+          hola mundo
+          <WidgetButton 
+            show={!this.state.chatIsOpen}
+            click={this.toggleChatHandler} />
+          {/* <ChatContainer 
+            show= {this.state.chatIsOpen}
+            closeChat = {this.toggleChatHandler} />   */}
         </div>
-        <div className='bottom'>
-          <div className='header-title'>{props.componentTitle}</div>
-          <div>{renderSampleList}</div>
-          <button className='button' onClick={handleClick}>
-            Click me!
-          </button>
-        </div>
-      </div>
-    </Styled>
-  );
-};
+      );
+    }
+  }
 
-App.defaultProps = {
-  componentTitle: 'Chat Component',
-  sampleList: [
-    'Create with React',
-    'Build as Web Component',
-    'Use it anywhere!',
-  ],
-}
-
-App.propTypes = {
-  componentTitle: PropTypes.string,
-  sampleList: PropTypes.array,
-};
 
 export default App;

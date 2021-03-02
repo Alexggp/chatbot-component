@@ -1,0 +1,24 @@
+.ChatContainer{
+  position: fixed;
+  z-index: 999;
+  border-radius: 10px;
+  overflow: hidden;
+  right: 25px;
+  bottom: 15px;
+  width: 440px;
+  height: 600px;
+  box-shadow: black 0px 0px 16px -1px;
+  display: flex;
+  flex-direction: column;
+}
+
+@media  (max-width: 600px){
+  .ChatContainer{
+    width: 100vw;
+    height: 100vh;
+    left:0;
+    top:0;
+    border-radius: unset;
+    box-shadow: none;
+  }
+}

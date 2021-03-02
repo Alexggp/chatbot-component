@@ -1,0 +1,49 @@
+.Card{
+  background-color: #FFF;
+  width: 180px;
+}
+
+.Image{
+  width: 180px;
+  height: 100px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  box-sizing: border-box;
+}
+
+.Image img{
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.Info{
+  width: 180px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.Title{
+  width: 100%;
+  text-align: center;
+  height: 2.8em;
+  font-weight: 700;
+  font-size: 10px;
+  text-transform: uppercase;
+  color: #47484A;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: default;
+}
+
+.Buttons{
+  margin-top: 10px;
+  width: 100%;
+};
