@@ -1,35 +1,40 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { withStyles } from 'direflow-component';
 
-import classes from './Button.module.css';
+import styles from './Button.css';
 
 
 class Button extends Component{
-  state={
-    clicked: false
-  }
-
-  clickHandler = () => {
-    if(!this.props.disabled){
-      this.setState(prevState=>({
-        clicked: !prevState.clicked
-      }));
-      if(this.props.action){
-        window.open(this.props.action, '_blank');
+  constructor(){
+    super();
+    this.state={
+      clicked: false
+    }
+  
+    this.clickHandler = () => {
+      if(!this.props.disabled){
+        this.setState(prevState=>({
+          clicked: !prevState.clicked
+        }));
+        if(this.props.action){
+          window.open(this.props.action, '_blank');
+        }
+        this.props.click(this.props.value);
+        
       }
-      this.props.click(this.props.value);
-      
     }
   }
+ 
 
   render(){
 
     const buttonClasses = [
-      // `button-${this.props.type}`,
-      classes.Button
+      'Button'
     ];
 
     if (this.state.clicked){
-      buttonClasses.push(classes.ButtonClicked)
+      buttonClasses.push('ButtonClicked')
     }
     return (
       <div 
@@ -43,6 +48,14 @@ class Button extends Component{
   
 }
 
+Button.propTypes = {
+  disabled: PropTypes.bool,
+  style: PropTypes.object,
+  title: PropTypes.string,
+  click: PropTypes.func,
+  action: PropTypes.string,
+  value: PropTypes.string
+};
 
 
-export default Button;
+export default withStyles(styles)(Button);

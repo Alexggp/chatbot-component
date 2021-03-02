@@ -1,18 +1,19 @@
 import React from 'react';
+import { withStyles } from 'direflow-component';
 
-import classes from './Spinner.module.css';
+import styles from './Spinner.css';
 
 
-const Spinner = (props) => {
+const Spinner = () => {
 
 
 
   return (
-    <div className={classes.Spinner}>
-      <div className={classes.DotContainer}>
-        <div className={classes.Dot}></div>
-        <div className={classes.Dot}></div>
-        <div className={classes.Dot}></div>
+    <div className='Spinner'>
+      <div className='DotContainer'>
+        <div className='Dot'></div>
+        <div className='Dot'></div>
+        <div className='Dot'></div>
       </div>
     </div>
   )
@@ -20,4 +21,4 @@ const Spinner = (props) => {
 
 
 
-export default Spinner;
+export default withStyles(styles)(Spinner);

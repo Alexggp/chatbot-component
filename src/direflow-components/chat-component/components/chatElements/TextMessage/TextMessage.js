@@ -1,13 +1,15 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { withStyles } from 'direflow-component';
 
-import classes from './TextMessage.module.css';
+import styles from './TextMessage.css';
 
 
 const TextMessage = (props) => {
 
   const messageClasses = [
-    classes[`${props.origin}-message`],
-    classes.TextMessage
+    `${props.origin}-message`,
+    'TextMessage'
   ];
 
   return (
@@ -17,6 +19,10 @@ const TextMessage = (props) => {
   )
 }
 
+TextMessage.propTypes = {
+  origin: PropTypes.string,
+  style: PropTypes.object,
+  payload: PropTypes.object
+};
 
-
-export default TextMessage;
+export default withStyles(styles)(TextMessage);

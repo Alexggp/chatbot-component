@@ -1,31 +1,37 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { withStyles } from 'direflow-component';
 
-import classes from './QuickReply.module.css';
+import styles from './QuickReply.css';
 import Button from '../Button/Button';
 
 class QuickReply extends Component{
 
-  state={
-    disabled: false
-  }
-
-  clickHandler = (value) => {
-    if(!this.state.disabled){
-
-      this.setState(prevState=>({
-        disabled: !prevState.disabled
-      }));
-      
-      if (value) this.props.selected(value);
-
+  constructor(){
+    super();
+    this.state={
+      disabled: false
+    }
+  
+    this.clickHandler = (value) => {
+      if(!this.state.disabled){
+  
+        this.setState(prevState=>({
+          disabled: !prevState.disabled
+        }));
+        
+        if (value) this.props.selected(value);
+  
+      }
     }
   }
+  
 
   render(){
 
     const messageClasses = [
-      classes[`${this.props.origin}-message`],
-      classes.QuickReply
+      `${this.props.origin}-message`,
+      'QuickReply'
     ];
     const options = this.props.payload.buttons.map((btn, index)=>(
       <Button 
@@ -48,6 +54,12 @@ class QuickReply extends Component{
   
 }
 
+QuickReply.propTypes = {
+  origin: PropTypes.string,
+  style: PropTypes.object,
+  buttonStyle: PropTypes.object,
+  payload: PropTypes.object,
+  selected: PropTypes.func
+};
 
-
-export default QuickReply;
+export default withStyles(styles)(QuickReply);

@@ -22,7 +22,6 @@ class App extends Component {
   render(){
     return (
         <div className="App">
-          hola mundo
           <WidgetButton 
             show={!this.state.chatIsOpen}
             click={this.toggleChatHandler} />

@@ -1,16 +1,18 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { withStyles } from 'direflow-component';
 
-import classes from './Card.module.css';
+import styles from './Card.css';
 import Button from '../Button/Button';
 
 const Card = (props) =>{
 
     const messageClasses = [
-      classes[`${props.origin}-message`],
-      classes.Card
+      `${props.origin}-message`,
+      'Card'
     ];
 
-    const clickHandler = (value, action) => {
+    const clickHandler = (value) => {
       if (value) props.selected(value);
     }
 
@@ -29,14 +31,14 @@ const Card = (props) =>{
 
     return (
       <div className={messageClasses.join(' ')} style={props.style}>
-        <div className={classes.Image}>
+        <div className='Image'>
           <img src={props.payload.image} alt={props.payload.title}/>
         </div>
-        <div className={classes.Info}>
-          <div className={classes.Title}>
+        <div className='Info'>
+          <div className='Title'>
             {props.payload.title}
           </div>
-          <div className={classes.Buttons}>
+          <div className='Buttons'>
             {buttons}
           </div>
         </div>
@@ -46,6 +48,13 @@ const Card = (props) =>{
   
 }
 
+Card.propTypes = {
+  origin: PropTypes.string,
+  style: PropTypes.object,
+  buttonStyle: PropTypes.object,
+  payload: PropTypes.object,
+  selected: PropTypes.func
+};
 
 
-export default Card;
+export default withStyles(styles)(Card);

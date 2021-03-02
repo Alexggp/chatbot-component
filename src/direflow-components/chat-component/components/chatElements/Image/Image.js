@@ -1,23 +1,29 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { withStyles } from 'direflow-component';
 
-import classes from './Image.module.css';
+import styles from './Image.css';
 import Backdrop from '../../ChatContainer/Backdrop/Backdrop';
 
 class Image extends Component {
 
-  state = {
-    fullSize: false
-  }
-
-
-  hideFullSize = () =>{
-    this.setState({fullSize: false})
-  }
-
+  constructor(){
+    super();
+    this.state = {
+      fullSize: false
+    }
   
-  showFullSize = () =>{
-    this.setState({fullSize: true})
+  
+    this.hideFullSize = () =>{
+      this.setState({fullSize: false})
+    }
+  
+    
+    this.showFullSize = () =>{
+      this.setState({fullSize: true})
+    }
   }
+
 
 
   render(){
@@ -27,13 +33,13 @@ class Image extends Component {
           fullWindow={true}
           show={this.state.fullSize} 
           clicked={this.hideFullSize}>
-            <img className={classes.FullSizeImage} src={this.props.payload.image} alt='' />
+            <img className='FullSizeImage' src={this.props.payload.image} alt='' />
         </Backdrop>
     )
 
     return (
       <React.Fragment>
-        <div className={classes.Image} style={this.props.style}>
+        <div className='Image' style={this.props.style}>
           <img 
             src={this.props.payload.image} 
             onClick = {this.showFullSize}
@@ -47,6 +53,11 @@ class Image extends Component {
 
 }
 
+Image.propTypes = {
+  payload: PropTypes.object,
+  style: PropTypes.object
+
+};
 
 
-export default Image;
+export default withStyles(styles)(Image);

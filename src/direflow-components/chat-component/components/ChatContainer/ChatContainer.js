@@ -9,7 +9,7 @@ import ChatHeader from './ChatHeader/ChatHeader';
 import ChatBody from './ChatBody/ChatBody';
 import ChatFooter from './ChatFooter/ChatFooter';
 
-import demoInput from '../../demoInput';
+// import demoInput from '../../demoInput';
 
 class ChatContainer extends Component {
   constructor(){
@@ -17,8 +17,8 @@ class ChatContainer extends Component {
     this.brokerConexion = new EvaConexion();
 
     this.state= {
-      // messages:[],
-      messages: demoInput,
+      messages:[],
+      // messages: demoInput,
       showSpinner: false
     }
   
