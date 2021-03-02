@@ -12,16 +12,15 @@
   width: 100%;
   box-sizing: border-box;
   padding: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
 }
 
 .MessagesContainer > div{
   margin-bottom: 20px;
   animation-name: fade;
   animation-duration: 1s;
-  
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 @keyframes fade {
